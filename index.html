@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boolzapp</title>
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Vue js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div id="app" class="wrapper">
+        <!-- App Container -->
+        <div class="app-container">
+            <div class="row flex">
+                <!-- Chats column -->
+                <div class="chats-col">
+                    <!-- Header -->
+                    <header class="header chats-header flex">
+                        <div class="pp">
+                            <button class="btn profile-pic-btn"><img src="img/avatar_io.jpg"
+                                    alt="profile picture"></button>
+                        </div>
+                        <div class="header-icons chats-icons flex">
+                            <button class="btn icon"><i class="fa-solid fa-circle-notch"
+                                    style="color: #b7b7b7;"></i></button>
+                            <button class="btn icon"><i class="fa-solid fa-message"
+                                    style="color: #b7b7b7;"></i></button>
+                            <button class="btn icon"><i class="fa-solid fa-ellipsis-vertical"
+                                    style="color: #b7b7b7;"></i></button>
+                            <div>
+                    </header>
+                    <!-- /Header -->
+
+                    <!-- CTA - notifications -->
+                    <div class="cta-notifications flex">
+                        <button class="btn bell">
+                            <i class="fa-solid fa-bell-slash" style="color: #8edafc;"></i>
+                        </button>
+                        <div class="notifications-content">
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <a href="">Attiva le notifiche desktop</a>
+                        </div>
+                    </div>
+                    <!-- /CTA - notifications -->
+
+                    <!-- Search Bar -->
+                    <div class="search-bar flex">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #b7b7b7;"></i>
+                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <label for="search">Search bar</label>
+                    </div>
+                    <!-- /Search Bar -->
+
+                    <!-- Chats List -->
+                    <div class="chat-container">
+                        <div class="container-2">
+                            <ul class="chats-list">
+                                <li class="single-chat flex">
+                                    <!-- Michele -->
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_1.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Michele</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">16:15</div>
+                                </li>
+
+                                <!-- Fabio -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_2.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Fabio</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">16:05</div>
+                                </li>
+
+                                <!-- Samuele -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_3.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Samuele</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">16:03</div>
+                                </li>
+
+                                <!-- Alessandro B. -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_4.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Alessandro B.</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:50</div>
+                                </li>
+
+                                <!-- Alessandro L. -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_5.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Alessandro L.</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Claudia -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_6.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Claudia</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Federico -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_7.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Federico</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Gabriele -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_8.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Gabriele</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Gabriele -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_8.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Gabriele</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Gabriele -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_8.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Gabriele</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Gabriele -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_8.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Gabriele</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Claudia -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_6.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Claudia</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+
+                                <!-- Federico -->
+                                <li class="single-chat flex">
+                                    <div class="flex">
+                                        <button class="btn profile-pic-btn">
+                                            <img src="img/avatar_7.jpg" alt="">
+                                        </button>
+                                        <div class="chat-info">
+                                            <h6 class="contact">Federico</h6>
+                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                        </div>
+                                    </div>
+                                    <div class="time chat-time">15:45</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Chats List -->
+                    </div>
+                    <!-- /Container-2 -->
+                </div>
+                <!-- Chats column -->
+
+                <!-- Conversation column -->
+                <div class="convo-col">
+                    <!-- Header -->
+                    <header class="header convo-header flex">
+                            <div class="flex">
+                                <button class="btn profile-pic-btn"><img src="img/avatar_1.jpg" alt="convo profile picture">
+                                </button>
+                                <div class="convo-contact">
+                                    <p class="contact">Michele</p>
+                                    <p class="time">Ultimo accesso oggi alle 16:26</p>
+                                </div>
+                            </div>
+                            <div class="header-icons convo-icons flex">
+                                <button class="btn icon"><i class="fa-solid fa-magnifying-glass"
+                                        style="color: #b7b7b7;"></i></button>
+                                <button class="btn icon"><i class="fa-solid fa-paperclip"
+                                        style="color: #b7b7b7;"></i></button>
+                                <button class="btn icon"><i class="fa-solid fa-ellipsis-vertical"
+                                        style="color: #b7b7b7;"></i></button>
+                            </div>
+                    </header>
+                    <!-- /Header -->
+
+                    <!-- CONVO -->
+                    <div id="conversation" class="conversation">
+                        <main class="main-convo">
+                            <div class="main-text flex">
+                                <div class="text sent">
+                                    <div class="angle">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="text-info">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li>Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-message">
+                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
+                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
+                                        quisquam.
+                                    </p>
+                                    <div class="time text-time">16:50</div>
+                                </div>
+                            </div>
+
+                            <div class="main-text flex">
+                                <div class="text received">
+                                    <div class="angle">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="text-info">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li>Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-message">
+                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
+                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
+                                        quisquam.
+                                    </p>
+                                    <div class="time text-time">16:50</div>
+                                </div>
+                            </div>
+
+                            <div class="main-text flex">
+                                <div class="text sent relative">
+                                    <div class="angle">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="text-info">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li>Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-message">
+                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
+                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
+                                        quisquam.
+                                    </p>
+                                    <div class="time text-time">16:50</div>
+                                </div>
+                            </div>
+
+                            <div class="main-text flex">
+                                <div class="text received relative">
+                                    <div class="angle">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="text-info">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li>Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-message">
+                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
+                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
+                                        quisquam.
+                                    </p>
+                                    <div class="time text-time">16:50</div>
+                                </div>
+                            </div>
+
+                            <div class="main-text flex">
+                                <div class="text sent relative">
+                                    <div class="angle">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="text-info">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li>Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-message">
+                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
+                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
+                                        quisquam.
+                                    </p>
+                                    <div class="time text-time">16:50</div>
+                                </div>
+                            </div>
+
+                            <div class="main-text flex">
+                                <div class="text received relative">
+                                    <div class="angle">
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="text-info">
+                                        <ul>
+                                            <li>Info messaggio</li>
+                                            <li>Cancella messaggio</li>
+                                        </ul>
+                                    </div>
+                                    <p class="text-message">
+                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
+                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
+                                        quisquam.
+                                    </p>
+                                    <div class="time text-time">16:50</div>
+                                </div>
+                            </div>
+
+                    </div>
+
+                    </main>
+
+
+                    <!-- FOOTER -->
+                    <footer class="new-message flex">
+                        <button class="btn footer-icons">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </button>
+
+                        <label for="message">Scrivi un messaggio</label>
+                        <textarea id="message" name="message" placeholder="Scrivi un messaggio"></textarea>
+
+                        <button class="btn footer-icons">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <!-- /App Container -->
+    </div>
+    <!-- /Wrapper -->
+
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <!-- JS Script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
