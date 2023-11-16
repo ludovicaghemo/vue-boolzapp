@@ -96,7 +96,7 @@
                                 <button class="btn profile-pic-btn"><img src="img/avatar_1.jpg" alt="convo profile picture">
                                 </button>
                                 <div class="convo-contact">
-                                    <p class="contact">Michele</p>
+                                    <p class="contact">{{activeContactIndex.name}}</p>
                                     <p class="time">Ultimo accesso oggi alle 16:26</p>
                                 </div>
                             </div>
@@ -131,125 +131,17 @@
                                     <div class="time text-time">{{curMessage.date}}</div>
                                 </div>
                             </div>
-
-                            <!-- <div class="main-text flex">
-                                <div class="text received">
-                                    <div class="angle">
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                    <div class="text-info">
-                                        <ul>
-                                            <li>Info messaggio</li>
-                                            <li>Cancella messaggio</li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-message">
-                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
-                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
-                                        quisquam.
-                                    </p>
-                                    <div class="time text-time">16:50</div>
-                                </div>
-                            </div> -->
-
-                            <!-- <div class="main-text flex">
-                                <div class="text sent relative">
-                                    <div class="angle">
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                    <div class="text-info">
-                                        <ul>
-                                            <li>Info messaggio</li>
-                                            <li>Cancella messaggio</li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-message">
-                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
-                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
-                                        quisquam.
-                                    </p>
-                                    <div class="time text-time">16:50</div>
-                                </div>
-                            </div>
-
-                            <div class="main-text flex">
-                                <div class="text received relative">
-                                    <div class="angle">
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                    <div class="text-info">
-                                        <ul>
-                                            <li>Info messaggio</li>
-                                            <li>Cancella messaggio</li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-message">
-                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
-                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
-                                        quisquam.
-                                    </p>
-                                    <div class="time text-time">16:50</div>
-                                </div>
-                            </div>
-
-                            <div class="main-text flex">
-                                <div class="text sent relative">
-                                    <div class="angle">
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                    <div class="text-info">
-                                        <ul>
-                                            <li>Info messaggio</li>
-                                            <li>Cancella messaggio</li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-message">
-                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
-                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
-                                        quisquam.
-                                    </p>
-                                    <div class="time text-time">16:50</div>
-                                </div>
-                            </div>
-
-                            <div class="main-text flex">
-                                <div class="text received relative">
-                                    <div class="angle">
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                    <div class="text-info">
-                                        <ul>
-                                            <li>Info messaggio</li>
-                                            <li>Cancella messaggio</li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-message">
-                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
-                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
-                                        quisquam.
-                                    </p>
-                                    <div class="time text-time">16:50</div>
-                                </div>
-                            </div> -->
-
+                        </main>
                     </div>
 
-                    </main>
-
-
-                    <!-- FOOTER -->
+                    <!-- FOOTER - MESSAGE BAR-->
                     <footer class="new-message flex">
                         <button class="btn footer-icons">
                             <i class="fa-regular fa-face-smile"></i>
                         </button>
 
                         <label for="message">Scrivi un messaggio</label>
-                        <textarea id="message" name="message" placeholder="Scrivi un messaggio"></textarea>
+                        <textarea id="message" name="message" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage"></textarea>
 
                         <button class="btn footer-icons">
                             <i class="fa-solid fa-microphone"></i>

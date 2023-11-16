@@ -233,11 +233,23 @@ createApp({
                 }
             ],
             activeContactIndex: 0,
+            newMessage: "",
+
         }
     },
     methods: {
         setActiveContact: function(singleContact) {
             this.activeContactIndex = singleContact;
+        },
+        sendMessage: function(){
+            if(this.newMessage !== ""){
+                this.contacts[this.activeContactIndex].messages.push({
+                    date: '10/01/2020 15:50:00',
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = "";
+            }
         }
     }
 }).mount('#app')
