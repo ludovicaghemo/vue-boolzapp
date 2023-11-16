@@ -1,4 +1,4 @@
-const { createApp } = Vue
+const { createApp } = Vue;
 
 createApp({
     data() {
@@ -229,11 +229,15 @@ createApp({
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent'
                         }
-                    ],
-                },
-            ]
+                    ]
+                }
+            ],
+            activeContactIndex: 0,
+        }
+    },
+    methods: {
+        setActiveContact: function(singleContact) {
+            this.activeContactIndex = singleContact;
         }
     }
 }).mount('#app')
-
-

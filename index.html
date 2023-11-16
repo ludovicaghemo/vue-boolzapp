@@ -68,7 +68,7 @@
                         <div class="container-2">
                             <ul class="chats-list">
                                 <!-- Lista chat e contatti inseriti dinamicamente -->
-                                <li class="single-chat flex" v-for="(singleContact, index) in contacts">
+                                <li class="single-chat flex" v-for="(singleContact, index) in contacts" :key="index" @click="setActiveContact(singleContact)">
                                     <div class="flex">
                                         <button class="btn profile-pic-btn">
                                             <img :src="`img/avatar${singleContact.avatar}.jpg`" alt="">
@@ -114,8 +114,8 @@
                     <!-- CONVO -->
                     <div id="conversation" class="conversation">
                         <main class="main-convo">
-                            <div class="main-text flex">
-                                <div class="text sent">
+                            <div class="main-text flex" v-for="(curMessage, index) in activeContactIndex.messages" :key="index">
+                                <div class="text" :class="curMessage.status === 'sent' ? 'sent' : 'received'">
                                     <div class="angle">
                                         <i class="fa-solid fa-angle-down"></i>
                                     </div>
@@ -126,16 +126,13 @@
                                         </ul>
                                     </div>
                                     <p class="text-message">
-                                        Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Quia et veniam placeat quas doloribus! Libero ipsum odio blanditiis sint
-                                        cupiditate, itaque, sunt iusto molestiae, velit voluptates odit fugiat tenetur
-                                        quisquam.
+                                        {{curMessage.message}}
                                     </p>
-                                    <div class="time text-time">16:50</div>
+                                    <div class="time text-time">{{curMessage.date}}</div>
                                 </div>
                             </div>
 
-                            <div class="main-text flex">
+                            <!-- <div class="main-text flex">
                                 <div class="text received">
                                     <div class="angle">
                                         <i class="fa-solid fa-angle-down"></i>
@@ -154,9 +151,9 @@
                                     </p>
                                     <div class="time text-time">16:50</div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="main-text flex">
+                            <!-- <div class="main-text flex">
                                 <div class="text sent relative">
                                     <div class="angle">
                                         <i class="fa-solid fa-angle-down"></i>
@@ -238,7 +235,7 @@
                                     </p>
                                     <div class="time text-time">16:50</div>
                                 </div>
-                            </div>
+                            </div> -->
 
                     </div>
 
