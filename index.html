@@ -94,13 +94,12 @@
                         <!-- Header -->
                         <header class="header convo-header flex">
                                 <div class="flex">
-                                    <button class="btn profile-pic-btn">
-                                        <img :src="`img/avatar${activeContactIndex.avatar}.jpg`" alt="">
-                                        
-                                    </button>
+                                        <button v-if="activeContactIndex" class="btn profile-pic-btn">
+                                            <img :src="`img/avatar${activeContactIndex.avatar}.jpg`" alt="">
+                                        </button>
                                     <div class="convo-contact">
                                         <p class="contact">{{activeContactIndex.name}}</p>
-                                        <p class="time">Ultimo accesso oggi alle 16:26</p>
+                                        <p v-if="activeContactIndex" class="time">Ultimo accesso oggi alle 16:26</p>
                                     </div>
                                 </div>
                                 <div class="header-icons convo-icons flex">
@@ -117,22 +116,27 @@
                         <!-- CONVO -->
                         <div id="conversation" class="conversation">
                             <main class="main-convo">
-                                <div class="main-text flex" v-for="(curMessage, index) in activeContactIndex.messages" :key="index">
-                                    <div class="text" :class="curMessage.status === 'sent' ? 'sent' : 'received'">
-                                        <div class="angle">
-                                            <i class="fa-solid fa-angle-down"></i>
+                                <div v-if="activeContactIndex">
+                                    <div class="main-text flex" v-for="(curMessage, index) in activeContactIndex.messages" :key="index">
+                                        <div class="text" :class="curMessage.status === 'sent' ? 'sent' : 'received'">
+                                            <div class="angle">
+                                                <i class="fa-solid fa-angle-down"></i>
+                                            </div>
+                                            <div class="text-info">
+                                                <ul>
+                                                    <li>Info messaggio</li>
+                                                    <li>Cancella messaggio</li>
+                                                </ul>
+                                            </div>
+                                            <p class="text-message">
+                                                {{curMessage.message}}
+                                            </p>
+                                            <div class="time text-time">{{curMessage.date}}</div>
                                         </div>
-                                        <div class="text-info">
-                                            <ul>
-                                                <li>Info messaggio</li>
-                                                <li>Cancella messaggio</li>
-                                            </ul>
-                                        </div>
-                                        <p class="text-message">
-                                            {{curMessage.message}}
-                                        </p>
-                                        <div class="time text-time">{{curMessage.date}}</div>
                                     </div>
+                                </div>
+                                <div v-else>
+                                    <p class="select-chat">Seleziona una chat</p>
                                 </div>
                             </main>
                         </div>

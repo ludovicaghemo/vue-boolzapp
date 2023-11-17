@@ -318,7 +318,10 @@
     }
     
     /* MAIN CONVO */
-    
+    .select-chat {
+        text-align: center;
+    }
+
     .conversation {
         height: calc(100% - var(--header-height) - var(--footer-height)); 
         background-image: url(../img/mine.jpg);
