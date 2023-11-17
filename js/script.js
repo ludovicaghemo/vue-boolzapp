@@ -234,7 +234,7 @@ createApp({
             ],
             activeContactIndex: 0,
             newMessage: "",
-            
+            searchText: "",
         }
     },
     methods: {
@@ -250,7 +250,7 @@ createApp({
                 });
                 this.newMessage = "";
                 this.getResponse();
-
+                
                 
             }
         },
@@ -265,5 +265,16 @@ createApp({
               this.activeContactIndex.messages.push(responseMessage);
             }, 1000);
         },
+        searchChat: function(){
+            //console.log("ricerca", this.searchText);
+            let search = this.searchText.toLowerCase();
+            this.contacts.forEach(curContact => {
+                if (curContact.name.toLowerCase().includes(search)) {
+                    curContact.visible = true;
+                } else {
+                    curContact.visible = false
+                };
+            });
+        }
     },
 }).mount('#app')

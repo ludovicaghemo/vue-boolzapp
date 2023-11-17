@@ -59,7 +59,7 @@
                         <!-- Search Bar -->
                         <div class="search-bar flex">
                             <i class="fa-solid fa-magnifying-glass" style="color: #b7b7b7;"></i>
-                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText" @keyup="searchChat">
                             <label for="search">Search bar</label>
                         </div>
                         <!-- /Search Bar -->
@@ -69,7 +69,7 @@
                             <div class="container-2">
                                 <ul class="chats-list">
                                     <!-- Lista chat e contatti inseriti dinamicamente -->
-                                    <li class="single-chat flex" v-for="(singleContact, index) in contacts" :key="singleContact.name" @click="setActiveContact(singleContact)">
+                                    <li class="single-chat flex" v-for="(singleContact, index) in contacts" :key="singleContact.name" @click="setActiveContact(singleContact)" :class="{'flex': singleContact.visible, 'hidden': !singleContact.visible}">
                                         <div class="flex">
                                             <button class="btn profile-pic-btn">
                                                 <img :src="`img/avatar${singleContact.avatar}.jpg`" alt="">

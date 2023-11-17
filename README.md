@@ -16,9 +16,7 @@ dall’interlocutore (bianco) assegnando due classi CSS diverse
 un “ok” come risposta, che apparirà dopo 1 secondo.
 
 **Milestone 4**
-- [] Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
-contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
-“mar” rimangono solo Marco e Martina)
+- [x] Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
 **Milestone 5 - opzionale**
 - [] Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
@@ -124,3 +122,36 @@ Aggiungere una funzione getResponse che inserisca un messaggio di risposta autom
         }, 1000);
     }
 ```
+**Milestone 4**
+Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
+E' necessario salvare ciò che l'utente ricerca, e poi una volta salvato, va usato per cercare i risultati che matchano con la stringa che è stata cercata
+
+Implementare la funzione searchChat che svolga la ricerca:
+
+```
+searchChat: function(){
+            //console.log("ricerca", this.searchText);
+            let search = this.searchText.toLowerCase();
+            this.contacts.forEach(curContact => {
+                if (curContact.name.toLowerCase().includes(search)) {
+                    curContact.visible = true;
+                } else {
+                    curContact.visible = false
+                };
+            });
+        }
+```
+
+Richiamare in html l'input dell'utente tramite v-model, e la funzione searchChat tramite @keyup
+
+```
+<!-- Search Bar -->
+<div class="search-bar flex">
+    <i class="fa-solid fa-magnifying-glass" style="color: #b7b7b7;"></i>
+    <input id="search" type="text" placeholder="Cerca o inizia una nuova v-model="searchText" @keyup="searchChat">
+    <label for="search">Search bar</label>
+</div>
+<!-- /Search Bar -->
+```
+
