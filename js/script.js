@@ -234,7 +234,7 @@ createApp({
             ],
             activeContactIndex: 0,
             newMessage: "",
-
+            
         }
     },
     methods: {
@@ -243,13 +243,27 @@ createApp({
         },
         sendMessage: function(){
             if(this.newMessage !== ""){
-                this.contacts[this.activeContactIndex].messages.push({
+                this.activeContactIndex.messages.push({
                     date: '10/01/2020 15:50:00',
                     message: this.newMessage,
                     status: 'sent'
                 });
                 this.newMessage = "";
+                this.getResponse();
+
+                
             }
-        }
-    }
+        },
+        getResponse: function() {
+            setTimeout(() => {
+              const responseMessage = {
+                date: '10/01/2020 15:50:00',
+                message: 'Ok',
+                status: 'received',
+              };
+        
+              this.activeContactIndex.messages.push(responseMessage);
+            }, 1000);
+        },
+    },
 }).mount('#app')

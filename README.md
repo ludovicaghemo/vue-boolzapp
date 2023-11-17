@@ -10,9 +10,9 @@ dall’interlocutore (bianco) assegnando due classi CSS diverse
 - [x] Click sul contatto mostra la conversazione del contatto cliccato
 
 **Milestone 3**
-- [] Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+- [x] Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
 “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-- [] Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+- [x] Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
 un “ok” come risposta, che apparirà dopo 1 secondo.
 
 **Milestone 4**
@@ -92,7 +92,35 @@ Click sul contatto mostra la conversazione del contatto cliccato:
 **Milestone 3**
 Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde (inviato);
 
-Attraverso vmodel collegare l'input; al digit del tasto enter, il test viene pushato all'interno dell'oggetto dei messaggi
+    Attraverso vmodel collegare l'input; al digit del tasto enter, il testo viene pushato all'interno dell'oggetto dei messaggi
 
 
 Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+Aggiungere una funzione getResponse che inserisca un messaggio di risposta automatico dopo un secondo tramite setTimeout. 
+
+```
+    sendMessage: function(){
+        if(this.newMessage !== ""){
+            this.activeContactIndex.messages.push({
+                date: '10/01/2020 15:50:00',
+                message: this.newMessage,
+                status: 'sent'
+            });
+            //reset dell'input dell'utente dopo l'invio del messaggio
+            this.newMessage = ""; 
+            this.getResponse();
+        }
+    },
+    getResponse: function() {
+        setTimeout(() => {
+            const responseMessage = {
+            date: '10/01/2020 15:50:00',
+            message: 'Ok',
+            status: 'received',
+            };
+        
+            this.activeContactIndex.messages.push(responseMessage);
+        }, 1000);
+    }
+```

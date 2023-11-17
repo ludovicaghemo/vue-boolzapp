@@ -20,139 +20,144 @@
 
 <body>
     <!-- Wrapper -->
-    <div id="app" class="wrapper">
-        <!-- App Container -->
-        <div class="app-container">
-            <div class="row flex">
-                <!-- Chats column -->
-                <div class="chats-col">
-                    <!-- Header -->
-                    <header class="header chats-header flex">
-                        <div class="pp">
-                            <button class="btn profile-pic-btn"><img src="img/avatar_io.jpg"
-                                    alt="profile picture"></button>
-                        </div>
-                        <div class="header-icons chats-icons flex">
-                            <button class="btn icon"><i class="fa-solid fa-circle-notch"
-                                    style="color: #b7b7b7;"></i></button>
-                            <button class="btn icon"><i class="fa-solid fa-message"
-                                    style="color: #b7b7b7;"></i></button>
-                            <button class="btn icon"><i class="fa-solid fa-ellipsis-vertical"
-                                    style="color: #b7b7b7;"></i></button>
-                            <div>
-                    </header>
-                    <!-- /Header -->
-
-                    <!-- CTA - notifications -->
-                    <div class="cta-notifications flex">
-                        <button class="btn bell">
-                            <i class="fa-solid fa-bell-slash" style="color: #8edafc;"></i>
-                        </button>
-                        <div class="notifications-content">
-                            <p>Ricevi notifiche di nuovi messaggi</p>
-                            <a href="">Attiva le notifiche desktop</a>
-                        </div>
-                    </div>
-                    <!-- /CTA - notifications -->
-
-                    <!-- Search Bar -->
-                    <div class="search-bar flex">
-                        <i class="fa-solid fa-magnifying-glass" style="color: #b7b7b7;"></i>
-                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
-                        <label for="search">Search bar</label>
-                    </div>
-                    <!-- /Search Bar -->
-
-                    <!-- Chats List -->
-                    <div class="chat-container">
-                        <div class="container-2">
-                            <ul class="chats-list">
-                                <!-- Lista chat e contatti inseriti dinamicamente -->
-                                <li class="single-chat flex" v-for="(singleContact, index) in contacts" :key="index" @click="setActiveContact(singleContact)">
-                                    <div class="flex">
-                                        <button class="btn profile-pic-btn">
-                                            <img :src="`img/avatar${singleContact.avatar}.jpg`" alt="">
-                                        </button>
-                                        <div class="chat-info">
-                                            <h6 class="contact">{{singleContact.name}}</h6>
-                                            <p class="chat-preview">Lorem ipsum dolor sit amet</p>
-                                        </div>
-                                    </div>
-                                    <div class="time chat-time">16:15</div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /Chats List -->
-                    </div>
-                    <!-- /Container-2 -->
-                </div>
-                <!-- Chats column -->
-
-                <!-- Conversation column -->
-                <div class="convo-col">
-                    <!-- Header -->
-                    <header class="header convo-header flex">
-                            <div class="flex">
-                                <button class="btn profile-pic-btn"><img src="img/avatar_1.jpg" alt="convo profile picture">
-                                </button>
-                                <div class="convo-contact">
-                                    <p class="contact">{{activeContactIndex.name}}</p>
-                                    <p class="time">Ultimo accesso oggi alle 16:26</p>
-                                </div>
+    <div id="app">
+        <div class="wrapper">
+            <!-- App Container -->
+            <div class="app-container">
+                <div class="row flex">
+                    <!-- Chats column -->
+                    <div class="chats-col">
+                        <!-- Header -->
+                        <header class="header chats-header flex">
+                            <div class="pp">
+                                <button class="btn profile-pic-btn"><img src="img/avatar_io.jpg"
+                                        alt="profile picture"></button>
                             </div>
-                            <div class="header-icons convo-icons flex">
-                                <button class="btn icon"><i class="fa-solid fa-magnifying-glass"
+                            <div class="header-icons chats-icons flex">
+                                <button class="btn icon"><i class="fa-solid fa-circle-notch"
                                         style="color: #b7b7b7;"></i></button>
-                                <button class="btn icon"><i class="fa-solid fa-paperclip"
+                                <button class="btn icon"><i class="fa-solid fa-message"
                                         style="color: #b7b7b7;"></i></button>
                                 <button class="btn icon"><i class="fa-solid fa-ellipsis-vertical"
                                         style="color: #b7b7b7;"></i></button>
-                            </div>
-                    </header>
-                    <!-- /Header -->
+                                <div>
+                        </header>
+                        <!-- /Header -->
 
-                    <!-- CONVO -->
-                    <div id="conversation" class="conversation">
-                        <main class="main-convo">
-                            <div class="main-text flex" v-for="(curMessage, index) in activeContactIndex.messages" :key="index">
-                                <div class="text" :class="curMessage.status === 'sent' ? 'sent' : 'received'">
-                                    <div class="angle">
-                                        <i class="fa-solid fa-angle-down"></i>
-                                    </div>
-                                    <div class="text-info">
-                                        <ul>
-                                            <li>Info messaggio</li>
-                                            <li>Cancella messaggio</li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-message">
-                                        {{curMessage.message}}
-                                    </p>
-                                    <div class="time text-time">{{curMessage.date}}</div>
-                                </div>
+                        <!-- CTA - notifications -->
+                        <div class="cta-notifications flex">
+                            <button class="btn bell">
+                                <i class="fa-solid fa-bell-slash" style="color: #8edafc;"></i>
+                            </button>
+                            <div class="notifications-content">
+                                <p>Ricevi notifiche di nuovi messaggi</p>
+                                <a href="">Attiva le notifiche desktop</a>
                             </div>
-                        </main>
+                        </div>
+                        <!-- /CTA - notifications -->
+
+                        <!-- Search Bar -->
+                        <div class="search-bar flex">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #b7b7b7;"></i>
+                            <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <label for="search">Search bar</label>
+                        </div>
+                        <!-- /Search Bar -->
+
+                        <!-- Chats List -->
+                        <div class="chat-container">
+                            <div class="container-2">
+                                <ul class="chats-list">
+                                    <!-- Lista chat e contatti inseriti dinamicamente -->
+                                    <li class="single-chat flex" v-for="(singleContact, index) in contacts" :key="singleContact.name" @click="setActiveContact(singleContact)">
+                                        <div class="flex">
+                                            <button class="btn profile-pic-btn">
+                                                <img :src="`img/avatar${singleContact.avatar}.jpg`" alt="">
+                                            </button>
+                                            <div class="chat-info">
+                                                <h6 class="contact">{{singleContact.name}}</h6>
+                                                <p class="chat-preview">Lorem ipsum dolor sit amet</p>
+                                            </div>
+                                        </div>
+                                        <div class="time chat-time">16:15</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /Chats List -->
+                        </div>
+                        <!-- /Container-2 -->
                     </div>
+                    <!-- Chats column -->
 
-                    <!-- FOOTER - MESSAGE BAR-->
-                    <footer class="new-message flex">
-                        <button class="btn footer-icons">
-                            <i class="fa-regular fa-face-smile"></i>
-                        </button>
+                    <!-- Conversation column -->
+                    <div class="convo-col">
+                        <!-- Header -->
+                        <header class="header convo-header flex">
+                                <div class="flex">
+                                    <button class="btn profile-pic-btn">
+                                        <img :src="`img/avatar${activeContactIndex.avatar}.jpg`" alt="">
+                                        
+                                    </button>
+                                    <div class="convo-contact">
+                                        <p class="contact">{{activeContactIndex.name}}</p>
+                                        <p class="time">Ultimo accesso oggi alle 16:26</p>
+                                    </div>
+                                </div>
+                                <div class="header-icons convo-icons flex">
+                                    <button class="btn icon"><i class="fa-solid fa-magnifying-glass"
+                                            style="color: #b7b7b7;"></i></button>
+                                    <button class="btn icon"><i class="fa-solid fa-paperclip"
+                                            style="color: #b7b7b7;"></i></button>
+                                    <button class="btn icon"><i class="fa-solid fa-ellipsis-vertical"
+                                            style="color: #b7b7b7;"></i></button>
+                                </div>
+                        </header>
+                        <!-- /Header -->
 
-                        <label for="message">Scrivi un messaggio</label>
-                        <textarea id="message" name="message" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage"></textarea>
+                        <!-- CONVO -->
+                        <div id="conversation" class="conversation">
+                            <main class="main-convo">
+                                <div class="main-text flex" v-for="(curMessage, index) in activeContactIndex.messages" :key="index">
+                                    <div class="text" :class="curMessage.status === 'sent' ? 'sent' : 'received'">
+                                        <div class="angle">
+                                            <i class="fa-solid fa-angle-down"></i>
+                                        </div>
+                                        <div class="text-info">
+                                            <ul>
+                                                <li>Info messaggio</li>
+                                                <li>Cancella messaggio</li>
+                                            </ul>
+                                        </div>
+                                        <p class="text-message">
+                                            {{curMessage.message}}
+                                        </p>
+                                        <div class="time text-time">{{curMessage.date}}</div>
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
 
-                        <button class="btn footer-icons">
-                            <i class="fa-solid fa-microphone"></i>
-                        </button>
-                    </footer>
+                        <!-- FOOTER - MESSAGE BAR-->
+                        <footer class="new-message flex">
+                            <button class="btn footer-icons">
+                                <i class="fa-regular fa-face-smile"></i>
+                            </button>
+
+                            <label for="message">Scrivi un messaggio</label>
+                            <textarea id="message" name="message" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage"></textarea>
+
+                            <button class="btn footer-icons">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                        </footer>
+                    </div>
                 </div>
             </div>
+            <!-- /App Container -->
         </div>
-        <!-- /App Container -->
+        <!-- /Wrapper -->
     </div>
-    <!-- /Wrapper -->
+    <!-- /app -->
 
     <!-- Luxon -->
     <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
