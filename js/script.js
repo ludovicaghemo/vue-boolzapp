@@ -235,14 +235,15 @@ createApp({
             activeContactIndex: 0,
             newMessage: "",
             searchText: "",
+            messageActiveIndex: 0,
         }
     },
     methods: {
-        setActiveContact: function(singleContact) {
+        setActiveContact: function (singleContact) {
             this.activeContactIndex = singleContact;
         },
-        sendMessage: function(){
-            if(this.newMessage !== ""){
+        sendMessage: function () {
+            if (this.newMessage !== "") {
                 this.activeContactIndex.messages.push({
                     date: '10/01/2020 15:50:00',
                     message: this.newMessage,
@@ -250,22 +251,20 @@ createApp({
                 });
                 this.newMessage = "";
                 this.getResponse();
-                
-                
             }
         },
-        getResponse: function() {
+        getResponse: function () {
             setTimeout(() => {
-              const responseMessage = {
-                date: '10/01/2020 15:50:00',
-                message: 'Ok',
-                status: 'received',
-              };
-        
-              this.activeContactIndex.messages.push(responseMessage);
+                const responseMessage = {
+                    date: '10/01/2020 15:50:00',
+                    message: 'Ok',
+                    status: 'received',
+                };
+
+                this.activeContactIndex.messages.push(responseMessage);
             }, 1000);
         },
-        searchChat: function(){
+        searchChat: function () {
             //console.log("ricerca", this.searchText);
             let search = this.searchText.toLowerCase();
             this.contacts.forEach(curContact => {
@@ -275,6 +274,10 @@ createApp({
                     curContact.visible = false
                 };
             });
+        },
+        deleteMessage: function(messageIndex) {
+            this.messageActiveIndex = messageIndex;
+            this.activeContactIndex.messages.splice(this.messageActiveIndex, 1);
         }
-    },
+    }
 }).mount('#app')
